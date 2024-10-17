@@ -2,33 +2,9 @@
 
 #Gestart op 17 oktober 2024
 
-<MyGrid>:
+<Touch>:
+    btn: btn
 
-    name: name
-    email: email
-
-    GridLayout:
-    
-        cols:1
-        size: root.width, root.height
-
-        GridLayout:
-            cols:2
-
-            Label:
-                text: "Name: "
-
-            TextInput:
-                id: name
-                multiline:False
-                
-            Label:
-                text: "Email: "
-            
-            TextInput:
-                id: email
-                multiline:False
-        
-        Button:
-            text: 'Submit'
-            on_press: root.btn()
+    Button:
+        id: btn
+        text: "My Btn"
