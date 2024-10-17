@@ -2,26 +2,25 @@
 
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
 from kivy.uix.widget import Widget
-from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty
+from kivy.uix.label import Label
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.popup import Popup
 
-class MyGrid(Widget):
-    name = ObjectProperty(None)
-    email = ObjectProperty(None)
+class P(FloatLayout):
+    pass
 
-    def btn(self):
-        print("Name:", self.name.text, "email:", self.email.text)
-        self.name.text = ""
-        self.email.text = ""
+def show_popup():
+    show = P()
+
+    popupWindow = Popup(title="Popup Window", content=show, size_hint=(None, None), size=(400, 400))
+
+    popupWindow.open()
 
 class MyApp(App):
     def build(self):
-        return MyGrid()
+        return
 
 if __name__ == "__main__":
     MyApp().run()
