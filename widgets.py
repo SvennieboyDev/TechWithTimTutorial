@@ -8,6 +8,10 @@ from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.popup import Popup
 
+class Widgets(Widget):
+    def btn(self):
+        show_popup()
+
 class P(FloatLayout):
     pass
 
@@ -20,7 +24,7 @@ def show_popup():
 
 class MyApp(App):
     def build(self):
-        return
+        return Widgets()
 
 if __name__ == "__main__":
     MyApp().run()
