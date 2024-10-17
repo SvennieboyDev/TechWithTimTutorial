@@ -2,26 +2,29 @@
 
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
+from kivy.graphics import Rectangle
+from kivy.graphics import Color
 from kivy.uix.widget import Widget
-from kivy.uix.floatlayout import FloatLayout
-from kivy.properties import ObjectProperty
+from kivy.graphics import Line
 
-class MyGrid(Widget):
-    name = ObjectProperty(None)
-    email = ObjectProperty(None)
+class Touch(Widget):
+    def __init__(self, **kwargs):
+        super(Touch, self).__init__(**kwargs)
 
-    def btn(self):
-        print("Name:", self.name.text, "email:", self.email.text)
-        self.name.text = ""
-        self.email.text = ""
+        with self.canvas:
+            Line(points=(20,30,400,500,60,500))
+            Color(1,0,0,0.5, mode="rgba")
+            self.rect = Rectangle(pos=(0,0), size=(50,50))
+    
+    def on_touch_down(self, touch):
+        self.rect.pos = touch.pos
+    
+    def on_touch_move(self, touch):
+        self.rect.pos = touch.pos
 
 class MyApp(App):
     def build(self):
-        return MyGrid()
+        return Touch()
 
 if __name__ == "__main__":
     MyApp().run()
