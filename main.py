@@ -1,5 +1,7 @@
 #Tutorial gestart op 16 oktober
 
+#Werkt niet meer door kv file! Verwijder of zet dit bestand uit
+
 import kivy
 from kivy.app import App
 from kivy.uix.label import Label
