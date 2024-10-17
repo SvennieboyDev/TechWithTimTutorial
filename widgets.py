@@ -2,26 +2,24 @@
 
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
-from kivy.uix.widget import Widget
-from kivy.uix.floatlayout import FloatLayout
-from kivy.properties import ObjectProperty
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
-class MyGrid(Widget):
-    name = ObjectProperty(None)
-    email = ObjectProperty(None)
+class MainWindow(Screen):
+    pass
 
-    def btn(self):
-        print("Name:", self.name.text, "email:", self.email.text)
-        self.name.text = ""
-        self.email.text = ""
+class SecondWindow(Screen):
+    pass
 
-class MyApp(App):
+class WindowManager(ScreenManager):
+    pass
+
+# Negate naming conventions
+kv = Builder.load_file("my.kv")
+
+class MyMainApp(App):
     def build(self):
-        return MyGrid()
+        return kv
 
 if __name__ == "__main__":
-    MyApp().run()
+    MyMainApp().run()
