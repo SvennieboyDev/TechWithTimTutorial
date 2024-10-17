@@ -32,6 +32,17 @@ class MyGrid(GridLayout):
         self.submit = Button(text="Submit", font_size=40)
         self.add_widget(self.submit)
         self.submit.bind(on_press=self.pressed)
+    
+    def pressed(self, instance):
+        name = self.name.text
+        last = self.lastName.text
+        email = self.email.text
+
+        print("Name:", name, "Last Name:", last, "Email:", email)
+
+        self.name.text = ""
+        self.lastName.text = ""
+        self.email.text = ""
 
 
 class MyApp(App):
